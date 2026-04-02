@@ -6,7 +6,9 @@ from mcp.server.fastmcp import FastMCP
 
 # 옵시디언 보관함 경로 설정
 try:
-    VAULT_PATH = Path(os.getenv("OBSIDIAN_VAULT_PATH", "./obsidian_vault")).resolve()
+    # 기본 저장 경로: 사용자 요청에 따라 Obsidian Vault로 고정
+    # (원하면 OBSIDIAN_VAULT_PATH 환경변수로 덮어쓸 수 있습니다.)
+    VAULT_PATH = Path(os.getenv("OBSIDIAN_VAULT_PATH", r"C:\Users\minso\Documents\Obsidian Vault")).resolve()
 except Exception as e:
     print(f"오류: VAULT_PATH 설정 문제 - {e}")
     exit(1)
